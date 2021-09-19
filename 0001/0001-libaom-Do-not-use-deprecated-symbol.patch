@@ -1,0 +1,26 @@
+From 9982f0e4fb885e114f41cee33beba09a84c46581 Mon Sep 17 00:00:00 2001
+From: lifegpc <g1710431395@gmail.com>
+Date: Sat, 26 Jun 2021 16:22:32 +0800
+Subject: [PATCH] libaom: Do not use deprecated symbol.
+To: ffmpeg-devel@ffmpeg.org
+
+---
+ libavcodec/libaomdec.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libavcodec/libaomdec.c b/libavcodec/libaomdec.c
+index 6e7324a832..48d1044edf 100644
+--- a/libavcodec/libaomdec.c
++++ b/libavcodec/libaomdec.c
+@@ -240,7 +240,7 @@ static av_cold int aom_free(AVCodecContext *avctx)
+ 
+ static av_cold int av1_init(AVCodecContext *avctx)
+ {
+-    return aom_init(avctx, &aom_codec_av1_dx_algo);
++    return aom_init(avctx, aom_codec_av1_dx());
+ }
+ 
+ const AVCodec ff_libaom_av1_decoder = {
+-- 
+2.32.0.windows.1
+
